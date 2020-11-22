@@ -86,7 +86,7 @@ $ sstest ./dist
 
 You can add your scripts section to include `"test": "sstest ./dist"`.
  
-Then you may then use `npm test` to test your files:
+Then you may use `npm test` to test your code:
 
 ```
 $ npm test
