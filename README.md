@@ -65,7 +65,7 @@ These are any files named `*Test.js`.
 If you use a build system like TypeScript, then direct the test runner to look files from the `./dist` folder.
 
 ```
-$ npm test
+$ sstest ./dist
 
 > dldb@0.4.0 test /Users/jhh/git/sendanor/dldb
 > node dist/test.js
