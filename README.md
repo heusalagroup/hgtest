@@ -66,10 +66,6 @@ If you use a build system like TypeScript, then direct the test runner to look f
 
 ```
 $ sstest ./dist
-
-> dldb@0.4.0 test /Users/jhh/git/sendanor/dldb
-> node dist/test.js
-
 1 (of 1) tests failed:
 
 [/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
