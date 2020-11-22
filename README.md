@@ -1,17 +1,49 @@
 # sendanor/sstest
 
-This is extremely simple unit testing implementation for JavaScript (and 
-TypeScript).
+This project is extremely simple unit test runner for [NodeJS](https://nodejs.org).
 
-It...
+ * It can run tests written in JavaScript (or TypeScript)
+ * It's less than 200 lines of code
+ * It has zero runtime dependencies -- and only three (3!) development dependencies, NodeJS included
+ * It does not need configuring
+ * It runs on *NodeJS v14 LTS* and newer (but maybe older too)
 
- * ...is less than 200 lines of code
- * ...has zero dependencies
- * ...does not need configuring
- * ...runs on Node v14 LTS and newer (but maybe older too)
+### Background
 
-Made from the frustration of setting up Mocha & etc for a new project, which 
-also bring your project extra 109 packages as a dependency.
+It was made from the frustration of setting up Mocha & etc for a new project, which also bring your project extra 109 packages 
+as a dependency, and often this needless effort is the only reason why my project doesn't have unit tests and takes a 
+lot of disk space (not to mention security issues and the work needed to audit that).
 
-It took me less than an hour of work to implement it, which is much less than 
-setting up working Mocha setup.
+It took me less than two hours of work and one can of [Nocco](https://nocco.com) to implement it -- which is much less 
+than setting up fully working Mocha setup.
+
+### Example test
+
+If you're testing `DlInstance` class, create a file named `DlInstanceTest` and write your tests as static functions:
+
+```
+import AssertUtils from "./AssertUtils";
+
+export class DlInstanceTest {
+
+    public static firstTest () {
+
+        AssertUtils.equals(1, 2);
+
+    }
+
+}
+```
+
+### How to run your tests
+
+```
+sstest ./dist
+```
+
+### What it is not
+
+It doesn't include any asserting library, spies, fakes, or anything like that, since *it's not the job for a test runner*. 
+
+I suggest using [SinonJS](https://sinonjs.org/) for writing tests, but you may even use
+ [Node's assert module](https://nodejs.org/api/assert.html).
