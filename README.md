@@ -65,7 +65,25 @@ These are any files named `*Test.js`.
 If you use a build system like TypeScript, then direct the test runner to look files from the `./dist` folder.
 
 ```
-sstest ./dist
+$ npm test
+
+> dldb@0.4.0 test /Users/jhh/git/sendanor/dldb
+> node dist/test.js
+
+1 (of 1) tests failed:
+
+[/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
+    at Function.AssertUtils.equals (/Users/jhh/git/sendanor/dldb/dist/AssertUtils.js:9:19)
+    at Function.DlInstanceTest.firstTest (/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js:9:34)
+    at /Users/jhh/git/sendanor/dldb/dist/test.js:46:59
+    at Array.forEach (<anonymous>)
+    at /Users/jhh/git/sendanor/dldb/dist/test.js:30:33
+    at Array.forEach (<anonymous>)
+    at TestRunner.testFile (/Users/jhh/git/sendanor/dldb/dist/test.js:26:23)
+    at Array.forEach (<anonymous>)
+    at Function.TestRunner.testDirectory (/Users/jhh/git/sendanor/dldb/dist/test.js:63:29)
+    at Object.<anonymous> (/Users/jhh/git/sendanor/dldb/dist/test.js:111:12) 
+
 ```
 
 ### Example integration with package.json
