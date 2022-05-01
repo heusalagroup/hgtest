@@ -21,6 +21,14 @@ import { CommandArgumentUtils } from "./fi/hg/core/cmd/utils/CommandArgumentUtil
 import { ParsedCommandArgumentStatus } from "./fi/hg/core/cmd/types/ParsedCommandArgumentStatus";
 import { Headers } from "./fi/hg/core/request/Headers";
 import { BUILD_USAGE_URL, BUILD_WITH_FULL_USAGE } from "./constants/build";
+import { TestRunner } from "./fi/hg/core/test/TestRunner";
+import {
+    resolve as pathResolve
+} from "path";
+import {
+    existsSync,
+    lstatSync
+} from "fs";
 
 const LOG = LogService.createLogger('main');
 
@@ -35,7 +43,7 @@ export async function main (
 
         LOG.debug(`Loglevel as ${LogService.getLogLevelString()}`);
 
-        const {scriptName, parseStatus, exitStatus, errorString} = CommandArgumentUtils.parseArguments(COMMAND_NAME, args);
+        const {scriptName, parseStatus, exitStatus, errorString, freeArgs} = CommandArgumentUtils.parseArguments(COMMAND_NAME, args);
 
         if ( parseStatus === ParsedCommandArgumentStatus.HELP || parseStatus === ParsedCommandArgumentStatus.VERSION ) {
             console.log(getMainUsage(scriptName));
@@ -55,7 +63,27 @@ export async function main (
             LOG.error('Error while shutting down the service: ', err);
         });
 
-        console.log(`Hello world`);
+        const CURRENT_DIR = process.cwd();
+        const ARGS = freeArgs;
+        const testDirectories : string[] = [];
+        const testFiles : string[] = [];
+        ARGS.forEach((arg: string) : void => {
+            const fullPath = pathResolve(CURRENT_DIR, arg);
+            if (!existsSync(fullPath)) {
+                throw TypeError('Argument is unsupported or not a file: ' + arg);
+            }
+            const stat = lstatSync(fullPath);
+            if (stat.isDirectory()) {
+                testDirectories.push(fullPath);
+            } else {
+                testFiles.push(fullPath);
+            }
+        });
+
+        testDirectories.forEach((dir: string) => TestRunner.testDirectory(dir));
+        testFiles.forEach((file: string) => TestRunner.testFile(file));
+
+        TestRunner.printResults();
 
         return CommandExitStatus.OK;
 
