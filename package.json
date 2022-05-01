@@ -1,5 +1,5 @@
 {
-  "name": "hgtest",
+  "name": "@heusalagroup/hgtest",
   "version": "1.0.0",
   "description": "",
   "main": "dist/hgtest.js",
