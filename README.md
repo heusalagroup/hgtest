@@ -1,4 +1,4 @@
-# sendanor/sstest
+# heusalagroup/hgtest
 
 This project is extremely simple unit test runner for [NodeJS](https://nodejs.org).
 
@@ -47,66 +47,66 @@ export class DlInstanceTest {
 You can install it using NPM:
 
 ```
-npm i -D @sendanor/sstest
+npm i -D @heusalagroup/hgtest
 ```
 
 If you want the latest non-stable version directly from our Github:
 
 ```
-npm i -D sendanor/sstest
+npm i -D heusalagroup/hgtest
 ```
 
 ### How to run your tests
 
-You'll need to tell `sstest` where to look for compiled JavaScript test files. 
+You'll need to tell `hgtest` where to look for compiled JavaScript test files. 
 
 These are any files named `*Test.js`.
 
 If you use a build system like TypeScript, then direct the test runner to look files from the `./dist` folder.
 
 ```
-$ sstest ./dist
+$ hgtest ./dist
 1 (of 1) tests failed:
 
-[/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
-    at Function.AssertUtils.equals (/Users/jhh/git/sendanor/dldb/dist/AssertUtils.js:9:19)
-    at Function.DlInstanceTest.firstTest (/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js:9:34)
-    at /Users/jhh/git/sendanor/dldb/dist/test.js:46:59
+[/Users/jhh/git/heusalagroup/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
+    at Function.AssertUtils.equals (/Users/jhh/git/heusalagroup/dldb/dist/AssertUtils.js:9:19)
+    at Function.DlInstanceTest.firstTest (/Users/jhh/git/heusalagroup/dldb/dist/DlInstanceTest.js:9:34)
+    at /Users/jhh/git/heusalagroup/dldb/dist/test.js:46:59
     at Array.forEach (<anonymous>)
-    at /Users/jhh/git/sendanor/dldb/dist/test.js:30:33
+    at /Users/jhh/git/heusalagroup/dldb/dist/test.js:30:33
     at Array.forEach (<anonymous>)
-    at TestRunner.testFile (/Users/jhh/git/sendanor/dldb/dist/test.js:26:23)
+    at TestRunner.testFile (/Users/jhh/git/heusalagroup/dldb/dist/test.js:26:23)
     at Array.forEach (<anonymous>)
-    at Function.TestRunner.testDirectory (/Users/jhh/git/sendanor/dldb/dist/test.js:63:29)
-    at Object.<anonymous> (/Users/jhh/git/sendanor/dldb/dist/test.js:111:12) 
+    at Function.TestRunner.testDirectory (/Users/jhh/git/heusalagroup/dldb/dist/test.js:63:29)
+    at Object.<anonymous> (/Users/jhh/git/heusalagroup/dldb/dist/test.js:111:12) 
 
 ```
 
 ### Example integration with package.json
 
-You can add your scripts section to include `"test": "sstest ./dist"`.
+You can add your scripts section to include `"test": "hgtest ./dist"`.
  
 Then you may use `npm test` to test your code:
 
 ```
 $ npm test
 
-> dldb@0.4.0 test /Users/jhh/git/sendanor/dldb
-> sstest ./dist
+> dldb@0.4.0 test /Users/jhh/git/heusalagroup/dldb
+> hgtest ./dist
 
 ERROR: 1 (of 1) tests failed:
 
-[/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
-    at Function.AssertUtils.equals (/Users/jhh/git/sendanor/dldb/dist/AssertUtils.js:9:19)
-    at Function.DlInstanceTest.firstTest (/Users/jhh/git/sendanor/dldb/dist/DlInstanceTest.js:9:34)
-    at /Users/jhh/git/sendanor/sstest/dist/SSTestRunner.js:48:59
+[/Users/jhh/git/heusalagroup/dldb/dist/DlInstanceTest.js] DlInstanceTest.firstTest failed:  TypeError: Values were not equal: 1 !== 2
+    at Function.AssertUtils.equals (/Users/jhh/git/heusalagroup/dldb/dist/AssertUtils.js:9:19)
+    at Function.DlInstanceTest.firstTest (/Users/jhh/git/heusalagroup/dldb/dist/DlInstanceTest.js:9:34)
+    at /Users/jhh/git/heusalagroup/hgtest/dist/SSTestRunner.js:48:59
     at Array.forEach (<anonymous>)
-    at /Users/jhh/git/sendanor/sstest/dist/SSTestRunner.js:32:33
+    at /Users/jhh/git/heusalagroup/hgtest/dist/SSTestRunner.js:32:33
     at Array.forEach (<anonymous>)
-    at TestRunner.testFileInDir (/Users/jhh/git/sendanor/sstest/dist/SSTestRunner.js:28:23)
+    at TestRunner.testFileInDir (/Users/jhh/git/heusalagroup/hgtest/dist/SSTestRunner.js:28:23)
     at Array.forEach (<anonymous>)
-    at Function.TestRunner.testDirectory (/Users/jhh/git/sendanor/sstest/dist/SSTestRunner.js:68:29)
-    at /Users/jhh/git/sendanor/sstest/dist/sstest.js:24:64 
+    at Function.TestRunner.testDirectory (/Users/jhh/git/heusalagroup/hgtest/dist/SSTestRunner.js:68:29)
+    at /Users/jhh/git/heusalagroup/hgtest/dist/hgtest.js:24:64 
 
 npm ERR! Test failed.  See above for more details.
 ```
