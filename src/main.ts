@@ -56,9 +56,7 @@ export async function main (
         }
 
         ProcessUtils.setupDestroyHandler( () => {
-
             LOG.debug('Stopping command from process utils event');
-
         }, (err : any) => {
             LOG.error('Error while shutting down the service: ', err);
         });

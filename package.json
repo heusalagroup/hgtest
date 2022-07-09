@@ -21,11 +21,10 @@
   ],
   "author": "Jaakko Heusala <jhh@hg.fi>",
   "license": "MIT",
-  "private": true,
   "bin": {
     "hgtest": "dist/hgtest.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
@@ -43,9 +42,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "ts-node": "^10.7.0",
     "tslib": "^2.4.0",
-    "typescript": "^4.6.4"
-  },
-  "devDependencies": {
+    "typescript": "^4.6.4",
     "@types/node": "^17.0.30"
   }
 }
